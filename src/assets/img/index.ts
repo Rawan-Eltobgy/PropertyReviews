@@ -1,3 +1,3 @@
 export const Images = {
-  ReviewsBackground: require("./background.png"),
+  ReviewsBackground: require("./background.png").default,
 };
