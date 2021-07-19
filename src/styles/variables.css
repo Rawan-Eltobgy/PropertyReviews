@@ -5,6 +5,7 @@
     --color-catskill-white: #f9fafc;
     --color-athens-gray: #eceef4;
     --color-blue-haze: #ccd0e0;
+    --color-gray-border: #e1e4e7;
     --color-slate-gray: #6e7492;
     --color-mirage: #191d2f;
     --color-shadow: #6e7492;
@@ -39,6 +40,7 @@
     --space-60: calc(16 * var(--space-unit));
     /* 60px */
     /* Font Sizes */
-    --font-size-small: calc(3 * var(--space-unit));
+    --font-size-xsmall: calc(3 * var(--space-unit));
+    --font-size-small: calc(3.2 * var(--space-unit));
     --font-size-large: calc(4 * var(--space-unit));
 }
