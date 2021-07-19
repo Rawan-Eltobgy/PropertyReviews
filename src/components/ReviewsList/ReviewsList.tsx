@@ -1,12 +1,14 @@
 import React from "react";
+import { ReviewItem } from "..";
+import styles from "./ReviewsList.module.css";
 
 function ReviewsList() {
   return (
-    <div>
-      {/* Header Background (bg img + id+ title) **/}
-      {/* Card View with reviews number and card for each review **/}
-      {/* Add  filter by score, channel **/}
-      {/* Add pagination at the end of the page  **/}
+    <div className={styles.ReviewList__container}>
+      <div className={styles.ReviewList__reviewsCardInner}>
+        <h1>17 Reviews</h1>
+        <ReviewItem />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+@import "../../styles/variables.css";
+.ReviewList__container {
+    background-color: var(--color-white);
+    height: 100%;
+    position: fixed;
+    top: 27%;
+    width: 65%;
+    border-radius: var(--space-10);
+}
+
+.ReviewList__reviewsCardInner {
+    margin: var(--space-50);
+}
