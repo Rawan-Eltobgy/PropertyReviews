@@ -8,6 +8,7 @@ export interface Review {
   negativeFeedback?: string;
   positiveFeedback?: string;
   publishedAt: string;
+  score: number;
 }
 
 export interface ReviewsState {

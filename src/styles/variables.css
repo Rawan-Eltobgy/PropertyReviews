@@ -37,7 +37,7 @@
     /* 44px */
     --space-60: calc(12 * var(--space-unit));
     /* 48px */
-    --space-60: calc(16 * var(--space-unit));
+    --space-70: calc(16 * var(--space-unit));
     /* 60px */
     /* Font Sizes */
     --font-size-xsmall: calc(3 * var(--space-unit));

@@ -45,7 +45,7 @@ export function* fetchReviewsDataAsync(action: any) {
 }
 
 /**
- * Vehicle Sagas
+ * Reviews Sagas
  */
 //for firing an async request.
 //But, if takeLatest fire off,

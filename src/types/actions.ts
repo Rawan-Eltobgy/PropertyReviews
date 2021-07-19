@@ -9,7 +9,8 @@ import {
 export interface FetchDataRequestPayload {
   page: number;
   limit: number;
-  filter?: string;
+  score?: number;
+  channel?: string;
 }
 
 export interface FetchDataSuccessPayload {

@@ -20,13 +20,9 @@ export default (state = reviewsState, action: ReviewsActions) => {
         isLoading: true,
       };
     case FETCH_DATA_SUCCESS:
-      const newData =
-        state.reviews.length === 0
-          ? action.payload.data
-          : [...state.reviews, ...action.payload.data];
       return {
         ...state,
-        reviews: newData,
+        reviews: action.payload.data,
         isLoading: false,
         error: "",
       };
