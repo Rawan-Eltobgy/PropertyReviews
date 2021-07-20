@@ -1,4 +1,4 @@
 import ReviewItem from "./ReviewItem/ReviewItem";
 import ReviewsList from "./ReviewsList/ReviewsList";
-
-export { ReviewsList, ReviewItem };
+import ChannelLogo from "./ChannelLogo/ChannelLogo";
+export { ReviewsList, ReviewItem, ChannelLogo };

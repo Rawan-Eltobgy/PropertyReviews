@@ -8,7 +8,7 @@ import styles from "./ReviewsList.module.css";
 
 function ReviewsList() {
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(7);
   const [channel, setChannel] = useState("");
   const [score, setScore] = useState(0);
 
@@ -44,14 +44,14 @@ function ReviewsList() {
   return (
     <div className={styles.ReviewList__container}>
       <div className={styles.ReviewList__reviewsCardInner}>
-        <h1>17 Reviews</h1>
+        <h1>44 Reviews</h1>
         {reviewsData?.map((review, index) => (
           <ReviewItem review={review} currentIndex={index} />
         ))}
         <ReactPaginate
           previousLabel={"← Previous"}
           nextLabel={"Next →"}
-          pageCount={14}
+          pageCount={6}
           onPageChange={handlePageClick}
           containerClassName={styles.pagination}
           previousLinkClassName={styles.pagination__link}

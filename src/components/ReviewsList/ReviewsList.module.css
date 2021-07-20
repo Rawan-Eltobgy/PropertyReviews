@@ -2,25 +2,27 @@
 .ReviewList__container {
     background-color: var(--color-white);
     height: 100%;
-    position: fixed;
+    position: relative;
     top: 27%;
     width: 65%;
     /* width: calc(18 * var(--space-70)); */
     border-radius: var(--space-10);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
+    padding-bottom: calc(2 * var(--space-70));
 }
 
 .ReviewList__reviewsCardInner {
     margin: var(--space-50);
+    display: flex;
+    flex-direction: column;
 }
 
 .pagination {
     display: flex;
-    /* margin: 20px; */
-    /* justify-content: space-between; */
     list-style: none;
     cursor: pointer;
+    align-self: center;
 }
 
 .pagination a {

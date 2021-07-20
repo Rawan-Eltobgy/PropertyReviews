@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./ReviewsHome.module.css";
-import { Images } from "../../assets/img";
 import { ReviewsList } from "../../components";
 function ReviewsHome() {
   return (

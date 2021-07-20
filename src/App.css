@@ -1,9 +1,4 @@
 @import "./styles/variables.css";
-body {
-    margin: 0;
-    background-color: var(--color-background);
-}
-
 .App {
     height: 100%;
 }

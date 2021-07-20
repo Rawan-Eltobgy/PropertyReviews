@@ -2,7 +2,6 @@
 .Container {
     display: flex;
     flex-direction: column;
-    flex: 1;
     align-items: center;
 }
 
@@ -15,7 +14,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-blend-mode: overlay;
     background-image: url("../../assets/img/background.png");
 }
 
