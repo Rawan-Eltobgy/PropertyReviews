@@ -15,7 +15,6 @@ export const reviewsState: ReviewsState = {
   totalNumberOfResults: 0,
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = reviewsState, action: ReviewsActions) => {
   switch (action.type) {
     case FETCH_DATA_REQUEST:

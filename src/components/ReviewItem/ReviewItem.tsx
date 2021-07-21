@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ReviewItem.module.css";
 import thumbsUp from "../../assets/svg/thumbsUp.svg";
 import thumbsDown from "../../assets/svg/thumbsDown.svg";
@@ -20,7 +19,6 @@ function ReviewItem({ review, currentIndex }: ReviewItemProps) {
     publishedAt,
     score,
   } = review;
-  const options = { year: "numeric", month: "long", day: "numeric" };
   const date = new Date(publishedAt).toDateString();
   return (
     <div>

@@ -92,7 +92,6 @@ function ReviewsList() {
       })
     );
   };
-  console.log(window.innerWidth);
   return (
     <div className={styles.ReviewList__container}>
       <div className={styles.ReviewList__reviewsCardInner}>

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ReviewsHome.module.css";
 import { ReviewsList } from "../../components";
 function ReviewsHome() {

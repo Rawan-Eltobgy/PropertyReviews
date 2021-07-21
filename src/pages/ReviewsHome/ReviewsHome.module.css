@@ -9,7 +9,7 @@
 .Container__background {
     width: 100%;
     max-width: 1440px;
-    border-radius: 0 0 20% 20%;
+    border-radius: 0 0 15% 15%;
     height: 70%;
     display: flex;
     justify-content: space-around;
@@ -23,7 +23,7 @@
 .Container__darkOverlay {
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
-    border-radius: 0 0 20% 20%;
+    border-radius: 0 0 15% 15%;
     left: 0;
     padding: 20px;
     right: 0;

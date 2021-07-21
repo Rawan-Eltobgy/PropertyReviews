@@ -1,13 +1,10 @@
 @import "../../styles/variables.css";
 .ReviewList__container {
     background-color: var(--color-white);
-    /* height: 100%; */
     position: relative;
     top: 40%;
     width: 65%;
-    /* width: calc(18 * var(--space-70)); */
     border-radius: var(--space-10);
-    /* overflow-y: scroll; */
     overflow-x: hidden;
     padding-bottom: calc(2 * var(--space-70));
 }
@@ -23,11 +20,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-
-/* 
-.ReviewList__reviewsFilterContainer {
-} */
 
 .ReviewList__filterLabelContainer {
     display: flex;
@@ -85,8 +77,6 @@
     list-style: none;
     cursor: pointer;
     align-self: center;
-    /* justify-items: center;
-    justify-content: center; */
 }
 
 .Pagination a {
