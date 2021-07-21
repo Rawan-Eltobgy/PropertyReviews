@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Property Review Sample app App using
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React app built using [React] https://reactjs.org/.
+- Redux: [Redux](https://redux.js.org/).
+- Redux-saga: [Redux-saga](https://redux-saga.js.org/).
+- Typescript: [Typescript](https://www.typescriptlang.org/docs/).
+- Used API powered by: [json-server] https://github.com/typicode/json-server.
 
-## Available Scripts
+## Installation And Running
 
-In the project directory, you can run:
+Clone this repository.
 
-### `yarn start`
+1. `yarn install or npm install`
+1. `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### App Flow and functionality
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- When the user opens the app, the data gets fetched directly from reviews service with a limit of 7 results per page.
+- Number of total reults is shown on the top of the page along with search functionalities.
+- If no data fetched or returned users gets returned a message on the screen.
+- User can search by rating or review channel.
 
-### `yarn test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a href="https://ibb.co/wYjnPxQ"><img src="https://i.ibb.co/KmStf3s/Screen-Shot-2021-07-21-at-12-14-23-PM.png" alt="Screen-Shot-2021-07-21-at-12-14-23-PM" border="0"></a>
+<a href="https://ibb.co/fnQCvPL"><img src="https://i.ibb.co/hZCKftw/Screen-Shot-2021-07-21-at-12-15-30-PM.png" alt="Screen-Shot-2021-07-21-at-12-15-30-PM" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/SnndGG5/2021-07-21-12-59-25.jpg" alt="2021-07-21-12-59-25" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/vc3VnRB/2021-07-21-13-00-30.jpg" alt="2021-07-21-13-00-30" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
+<a href="https://ibb.co/zFywCCf"><img src="https://i.ibb.co/G9KjGGP/Screen-Shot-2021-07-21-at-12-41-02-PM.png" alt="Screen-Shot-2021-07-21-at-12-41-02-PM" border="0"></a>
+<a href="https://ibb.co/vY8JgMy"><img src="https://i.ibb.co/5FV5tJp/Screen-Shot-2021-07-21-at-12-44-23-PM.png" alt="Screen-Shot-2021-07-21-at-12-44-23-PM" border="0"></a>
+<a href="https://ibb.co/pLBNV43"><img src="https://i.ibb.co/YLFJnft/Screen-Shot-2021-07-21-at-12-44-56-PM.png" alt="Screen-Shot-2021-07-21-at-12-44-56-PM" border="0"></a>
+<a href="https://ibb.co/m6GDt56"><img src="https://i.ibb.co/SRPs0wR/Screen-Shot-2021-07-21-at-1-06-27-PM.png" alt="Screen-Shot-2021-07-21-at-1-06-27-PM" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
