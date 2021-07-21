@@ -59,7 +59,7 @@ function ReviewsList() {
       );
     };
     fetchData();
-  }, [page, limit, dispatch]);
+  }, [page, limit, dispatch, score, channel]);
 
   function handlePageClick(selectedItem: { selected: number }) {
     setPage(selectedItem.selected + 1);

@@ -1,17 +1,6 @@
-import {
-  all,
-  call,
-  put,
-  select,
-  takeEvery,
-  takeLatest,
-} from "redux-saga/effects";
+import { all, call, put, takeEvery } from "redux-saga/effects";
 import axios from "axios";
-import {
-  FETCH_DATA_REQUEST,
-  FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE,
-} from "../store/actionTypes";
+import { FETCH_DATA_REQUEST } from "../store/actionTypes";
 import {
   fetchDataFailure,
   fetchDataPagesSuccess,
