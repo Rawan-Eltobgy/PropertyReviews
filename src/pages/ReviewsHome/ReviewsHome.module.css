@@ -3,11 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .Container__background {
     width: 100%;
     max-width: 1440px;
+    border-radius: 0 0 20% 20%;
     height: 70%;
     display: flex;
     justify-content: space-around;
@@ -19,8 +21,9 @@
 }
 
 .Container__darkOverlay {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
+    border-radius: 0 0 20% 20%;
     left: 0;
     padding: 20px;
     right: 0;
@@ -49,4 +52,16 @@
 .Container__reviewTitle {
     color: var(--color-white);
     margin: 0px;
+}
+
+@media only screen and (max-width: 720px) {
+    .Container__background {
+        max-width: 100%;
+    }
+    .ReviewList__header {
+        flex-direction: column-reverse;
+    }
+    .Container__backgroundTextView {
+        left: 8%;
+    }
 }

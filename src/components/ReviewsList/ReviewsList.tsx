@@ -1,18 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ReviewItem } from "..";
+import Loader from "react-loader-spinner";
 import ReactPaginate from "react-paginate";
+import { useWindowWidth } from "@react-hook/window-size";
+import { ReviewItem } from "..";
 import { fetchDataRequest } from "../../redux/actions/reviewsActions";
 import { ReviewsState } from "../../types/state";
 import styles from "./ReviewsList.module.css";
-import Loader from "react-loader-spinner";
 
 function ReviewsList() {
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(7);
+  const [limit] = useState(7);
   const [channel, setChannel] = useState("");
   const [score, setScore] = useState(0);
-  const [inputError, setInputError] = useState("");
+  const width = useWindowWidth();
   const dispatch = useDispatch();
 
   const channelsData = [
@@ -91,6 +92,7 @@ function ReviewsList() {
       })
     );
   };
+  console.log(window.innerWidth);
   return (
     <div className={styles.ReviewList__container}>
       <div className={styles.ReviewList__reviewsCardInner}>
@@ -101,23 +103,28 @@ function ReviewsList() {
               onSubmit={onSubmit}
               className={styles.ReviewList__reviewsFilters}
             >
-              <label
-                htmlFor="rating"
-                className={styles.ReviewList__filterLabel}
+              <div className={styles.ReviewList__filterLabelContainer}>
+                <label
+                  htmlFor="rating"
+                  className={styles.ReviewList__filterLabel}
+                >
+                  Rating:
+                </label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  autoFocus
+                  autoComplete="off"
+                  name="rating"
+                  onChange={onChange}
+                  className={styles.ReviewList__input}
+                />
+              </div>
+              <div
+                className={`${styles.ReviewList__filterChannel} ${styles.ReviewList__filterLabelContainer}`}
               >
-                Desired Rating:
-              </label>
-              <input
-                type="number"
-                step="0.1"
-                min="0"
-                max="5"
-                autoFocus
-                autoComplete="off"
-                name="rating"
-                onChange={onChange}
-              />
-              <div className={styles.ReviewList__filterChannel}>
                 <label
                   htmlFor="channel"
                   className={styles.ReviewList__filterLabel}
@@ -128,6 +135,7 @@ function ReviewsList() {
                   disabled={isLoading}
                   value={channel}
                   onChange={(e) => setChannel(e.currentTarget.value)}
+                  className={styles.ReviewList__input}
                 >
                   {channelsData.map(({ label, value }) => (
                     <option key={value} value={value}>
@@ -136,7 +144,11 @@ function ReviewsList() {
                   ))}
                 </select>
               </div>
-              <button type="submit" value="Submit">
+              <button
+                className={styles.ReviewList__submit}
+                type="submit"
+                value="Submit"
+              >
                 Search
               </button>
             </form>
@@ -161,16 +173,16 @@ function ReviewsList() {
           </div>
         )}
         <ReactPaginate
-          previousLabel={"← Previous"}
-          nextLabel={"Next →"}
+          previousLabel="&lt;"
+          nextLabel="&gt;"
           pageCount={numOfPages ?? 6}
           forcePage={page - 1}
           onPageChange={handlePageClick}
           containerClassName={styles.Pagination}
           previousLinkClassName={styles.Pagination__link}
           nextLinkClassName={styles.Pagination__link}
-          pageRangeDisplayed={3}
-          marginPagesDisplayed={3}
+          pageRangeDisplayed={width >= 1080 ? 3 : 0}
+          marginPagesDisplayed={width >= 1080 ? 3 : 1}
           disabledClassName={styles.Pagination__link_disabled}
           activeClassName={styles.Pagination__link_active}
         />

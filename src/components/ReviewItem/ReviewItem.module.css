@@ -63,3 +63,9 @@ hr {
     margin: 0px;
     color: var(--color-shadow);
 }
+
+@media only screen and (max-width: 720px) {
+    .Review__ratingSource {
+        justify-content: space-between;
+    }
+}
