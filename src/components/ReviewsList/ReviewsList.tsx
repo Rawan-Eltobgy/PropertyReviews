@@ -5,6 +5,7 @@ import ReactPaginate from "react-paginate";
 import { fetchDataRequest } from "../../redux/actions/reviewsActions";
 import { ReviewsState } from "../../types/state";
 import styles from "./ReviewsList.module.css";
+import Loader from "react-loader-spinner";
 
 function ReviewsList() {
   const [page, setPage] = useState(1);
@@ -24,6 +25,7 @@ function ReviewsList() {
       (state: any) => state.reviewsReducer
     ),
     reviewsData = reviewsState?.reviews,
+    error = reviewsState?.error,
     isLoading = reviewsState?.isLoading;
 
   useEffect(() => {
@@ -41,7 +43,7 @@ function ReviewsList() {
   }, [page, limit, dispatch]);
 
   function handlePageClick(selectedItem: { selected: number }) {
-    setPage(selectedItem.selected);
+    setPage(selectedItem.selected + 1);
   }
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,52 +68,86 @@ function ReviewsList() {
   return (
     <div className={styles.ReviewList__container}>
       <div className={styles.ReviewList__reviewsCardInner}>
-        <h1>44 Reviews</h1>
-        <form onSubmit={onSubmit}>
-          <input
-            type="number"
-            // pattern="/^[+-]?((\.\d+)|(\d+(\.\d+)?))$/"
-            inputMode="numeric"
-            autoFocus
-            autoComplete="off"
-            name="rating"
-            onChange={onChange}
-            placeholder="Enter desired rating"
-          />
-          <div className={styles.control}>
-            <label htmlFor="year">Year</label>
-            <select
-              disabled={isLoading}
-              value={channel}
-              onChange={(e) => setChannel(e.currentTarget.value)}
+        <div className={styles.ReviewList__header}>
+          <h1>44 Reviews</h1>
+          <div className={styles.ReviewList__reviewsFilterContainer}>
+            <form
+              onSubmit={onSubmit}
+              className={styles.ReviewList__reviewsFilters}
             >
-              {channelsData.map(({ label, value }) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-            </select>
+              <label
+                htmlFor="rating"
+                className={styles.ReviewList__filterLabel}
+              >
+                Desired Rating:
+              </label>
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                max="5"
+                autoFocus
+                autoComplete="off"
+                name="rating"
+                onChange={onChange}
+              />
+              <div className={styles.ReviewList__filterChannel}>
+                <label
+                  htmlFor="channel"
+                  className={styles.ReviewList__filterLabel}
+                >
+                  Channel:
+                </label>
+                <select
+                  disabled={isLoading}
+                  value={channel}
+                  onChange={(e) => setChannel(e.currentTarget.value)}
+                >
+                  {channelsData.map(({ label, value }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <button type="submit" value="Submit">
+                Search
+              </button>
+            </form>
           </div>
-          <button type="submit" value="Submit">
-            Search
-          </button>
-        </form>
-        {reviewsData?.map((review, index) => (
-          <ReviewItem review={review} currentIndex={index} />
-        ))}
-        <ReactPaginate
-          previousLabel={"← Previous"}
-          nextLabel={"Next →"}
-          pageCount={6}
-          onPageChange={handlePageClick}
-          containerClassName={styles.pagination}
-          previousLinkClassName={styles.pagination__link}
-          nextLinkClassName={styles.pagination__link}
-          pageRangeDisplayed={3}
-          marginPagesDisplayed={3}
-          disabledClassName={styles.pagination__link_disabled}
-          activeClassName={styles.pagination__link_active}
-        />
+        </div>
+        {reviewsData.length > 0 ? (
+          reviewsData?.map((review, index) => (
+            <ReviewItem review={review} currentIndex={index} />
+          ))
+        ) : error ? (
+          <div className={styles.ReviewList__loader}>
+            <h4>{error}</h4>
+          </div>
+        ) : (
+          <div className={styles.ReviewList__loader}>
+            <h3>No reviews found!</h3>
+          </div>
+        )}
+        {isLoading ? (
+          <div className={styles.ReviewList__loader}>
+            <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+          </div>
+        ) : (
+          <ReactPaginate
+            previousLabel={"← Previous"}
+            nextLabel={"Next →"}
+            pageCount={6}
+            onPageChange={handlePageClick}
+            containerClassName={styles.Pagination}
+            previousLinkClassName={styles.Pagination__link}
+            nextLinkClassName={styles.Pagination__link}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={3}
+            disabledClassName={styles.Pagination__link_disabled}
+            activeClassName={styles.Pagination__link_active}
+          />
+        )}
       </div>
     </div>
   );

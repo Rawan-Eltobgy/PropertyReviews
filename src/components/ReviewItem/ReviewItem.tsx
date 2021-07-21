@@ -20,12 +20,13 @@ function ReviewItem({ review, currentIndex }: ReviewItemProps) {
     publishedAt,
     score,
   } = review;
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const date = new Date(publishedAt).toDateString();
   return (
     <div>
       <div className={styles.Review}>
         <div className={styles.Review__ratingSource}>
           <div className={styles.Review__ratingBox}>
-            {/**the var rating */}
             <p className={styles.Review__givenScore}>{score}</p>
             <p> / 5</p>
           </div>
@@ -46,7 +47,7 @@ function ReviewItem({ review, currentIndex }: ReviewItemProps) {
           </div>
         )}
         <h5 className={styles.Review__author}>{author}</h5>
-        <p className={styles.Review__publishedAt}>{publishedAt}</p>
+        <p className={styles.Review__publishedAt}>Reviewed {date}</p>
       </div>
       <hr />
     </div>

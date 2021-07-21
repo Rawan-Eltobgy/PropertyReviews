@@ -18,14 +18,43 @@
     flex-direction: column;
 }
 
-.pagination {
+.ReviewList__header {
+    display: flex;
+    align-items: center;
+}
+
+.ReviewList__reviewsFilterContainer {
+    margin: 0px var(--space-50);
+}
+
+.ReviewList__reviewsFilters {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ReviewList__filterChannel {
+    margin: 0px var(--space-30);
+}
+
+.ReviewList__filterLabel {
+    margin: 0px var(--space-unit);
+}
+
+.ReviewList__loader {
+    align-self: center;
+    justify-self: center;
+}
+
+.Pagination {
     display: flex;
     list-style: none;
     cursor: pointer;
     align-self: center;
 }
 
-.pagination a {
+.Pagination a {
     padding: var(--space-15);
     margin: var(--space-15);
     border-radius: 5px;
@@ -33,16 +62,16 @@
     color: var(--color-blue);
 }
 
-.pagination__link {
+.Pagination__link {
     font-weight: bold;
 }
 
-.pagination__link_active a {
+.Pagination__link_active a {
     color: var(--color-white);
     background: var(--color-blue);
 }
 
-.pagination__link_disabled a {
+.Pagination__link_disabled a {
     color: rgb(198, 197, 202);
     border: 1px solid rgb(198, 197, 202);
 }

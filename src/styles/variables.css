@@ -42,5 +42,6 @@
     /* Font Sizes */
     --font-size-xsmall: calc(3 * var(--space-unit));
     --font-size-small: calc(3.2 * var(--space-unit));
+    --font-size-medium: calc(3.8 * var(--space-unit));
     --font-size-large: calc(4 * var(--space-unit));
 }

@@ -54,10 +54,12 @@ hr {
 }
 
 .Review__author {
-    margin: 5px 0px;
+    margin: var(--space-10) 0px;
+    font-size: var(--font-size-medium);
 }
 
 .Review__publishedAt {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-medium);
     margin: 0px;
+    color: var(--color-shadow);
 }
