@@ -7,12 +7,13 @@
 
 .Container__background {
     width: 100%;
+    max-width: 1440px;
     height: 70%;
     display: flex;
     justify-content: space-around;
     position: absolute;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     background-image: url("../../assets/img/background.png");
 }
@@ -33,16 +34,19 @@
 
 .Container__backgroundTextView {
     position: absolute;
-    left: 20%;
-    top: 8%;
+    left: 18%;
+    top: 10%;
     width: 100%;
+    padding-bottom: var(--space-60);
 }
 
 .Container__reviewID {
     color: var(--color-white);
     margin-bottom: var(--space-5);
+    font-weight: 400;
 }
 
 .Container__reviewTitle {
     color: var(--color-white);
+    margin: 0px;
 }
