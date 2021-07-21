@@ -55,10 +55,11 @@ function ReviewsList() {
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
+    setPage(1);
     await dispatch(
       fetchDataRequest({
         limit: limit,
-        page: 1,
+        page: page,
         score: score,
         channel: channel,
       })
@@ -138,6 +139,7 @@ function ReviewsList() {
           previousLabel={"← Previous"}
           nextLabel={"Next →"}
           pageCount={6}
+          forcePage={page - 1}
           onPageChange={handlePageClick}
           containerClassName={styles.Pagination}
           previousLinkClassName={styles.Pagination__link}
