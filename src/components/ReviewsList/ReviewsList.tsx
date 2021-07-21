@@ -129,25 +129,24 @@ function ReviewsList() {
             <h3>No reviews found!</h3>
           </div>
         )}
-        {isLoading ? (
+        {isLoading && (
           <div className={styles.ReviewList__loader}>
             <Loader type="Puff" color="#00BFFF" height={100} width={100} />
           </div>
-        ) : (
-          <ReactPaginate
-            previousLabel={"← Previous"}
-            nextLabel={"Next →"}
-            pageCount={6}
-            onPageChange={handlePageClick}
-            containerClassName={styles.Pagination}
-            previousLinkClassName={styles.Pagination__link}
-            nextLinkClassName={styles.Pagination__link}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={3}
-            disabledClassName={styles.Pagination__link_disabled}
-            activeClassName={styles.Pagination__link_active}
-          />
         )}
+        <ReactPaginate
+          previousLabel={"← Previous"}
+          nextLabel={"Next →"}
+          pageCount={6}
+          onPageChange={handlePageClick}
+          containerClassName={styles.Pagination}
+          previousLinkClassName={styles.Pagination__link}
+          nextLinkClassName={styles.Pagination__link}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={3}
+          disabledClassName={styles.Pagination__link_disabled}
+          activeClassName={styles.Pagination__link_active}
+        />
       </div>
     </div>
   );
