@@ -15,6 +15,8 @@ export interface ReviewsState {
   reviews: Review[];
   error: string;
   isLoading: boolean;
+  numOfPages?: number;
+  totalNumberOfResults?: number;
 }
 
 export interface WithDispatch {

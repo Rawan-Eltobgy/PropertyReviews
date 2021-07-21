@@ -26,7 +26,9 @@ function ReviewsList() {
     ),
     reviewsData = reviewsState?.reviews,
     error = reviewsState?.error,
-    isLoading = reviewsState?.isLoading;
+    isLoading = reviewsState?.isLoading,
+    numOfPages = reviewsState?.numOfPages,
+    totalNumberOfResults = reviewsState?.totalNumberOfResults;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +38,22 @@ function ReviewsList() {
           page: page,
           score: score,
           channel: channel,
+          allData: true,
+        })
+      );
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(
+        fetchDataRequest({
+          limit: limit,
+          page: page,
+          score: score,
+          channel: channel,
+          allData: false,
         })
       );
     };
@@ -48,8 +66,6 @@ function ReviewsList() {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
-    // if (Number(value) < 1 || Number(value) > 5) {
-    // }
     setScore(value);
   };
 
@@ -62,15 +78,24 @@ function ReviewsList() {
         page: page,
         score: score,
         channel: channel,
+        allData: true,
+      })
+    );
+    await dispatch(
+      fetchDataRequest({
+        limit: limit,
+        page: page,
+        score: score,
+        channel: channel,
+        allData: false,
       })
     );
   };
-
   return (
     <div className={styles.ReviewList__container}>
       <div className={styles.ReviewList__reviewsCardInner}>
         <div className={styles.ReviewList__header}>
-          <h1>44 Reviews</h1>
+          <h1>{totalNumberOfResults} Reviews</h1>
           <div className={styles.ReviewList__reviewsFilterContainer}>
             <form
               onSubmit={onSubmit}
@@ -138,7 +163,7 @@ function ReviewsList() {
         <ReactPaginate
           previousLabel={"← Previous"}
           nextLabel={"Next →"}
-          pageCount={6}
+          pageCount={numOfPages ?? 6}
           forcePage={page - 1}
           onPageChange={handlePageClick}
           containerClassName={styles.Pagination}

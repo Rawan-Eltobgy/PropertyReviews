@@ -1,11 +1,22 @@
-import { all, call, delay, put, select, takeLatest } from "redux-saga/effects";
+import {
+  all,
+  call,
+  put,
+  select,
+  takeEvery,
+  takeLatest,
+} from "redux-saga/effects";
 import axios from "axios";
 import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
 } from "../store/actionTypes";
-import { fetchDataFailure, fetchDataSuccess } from "../actions";
+import {
+  fetchDataFailure,
+  fetchDataPagesSuccess,
+  fetchDataSuccess,
+} from "../actions";
 
 /**
  * FetchingData
@@ -15,8 +26,12 @@ interface IResponse {
 }
 
 export function* fetchReviewsDataAsync(action: any) {
-  const { limit, page, channel, score } = action.payload;
-  const params = new URLSearchParams({ _page: page, _limit: limit });
+  const { limit, page, channel, score, allData } = action.payload;
+  const params = new URLSearchParams();
+  if (!allData) {
+    params.append("_page", page);
+    params.append("_limit", limit);
+  }
   if (channel && channel.length) {
     params.append("channel", channel);
   }
@@ -28,13 +43,24 @@ export function* fetchReviewsDataAsync(action: any) {
   try {
     const response: IResponse = yield call(axios.get, url);
     let result = response.data;
-    yield all([
-      put(
-        fetchDataSuccess({
-          data: result,
-        })
-      ),
-    ]);
+    if (allData) {
+      yield all([
+        put(
+          fetchDataPagesSuccess({
+            numOfPages: Math.ceil(result.length / 7),
+            totalNumberOfResults: result.length,
+          })
+        ),
+      ]);
+    } else {
+      yield all([
+        put(
+          fetchDataSuccess({
+            data: result,
+          })
+        ),
+      ]);
+    }
   } catch (e) {
     yield put(
       fetchDataFailure({
@@ -51,5 +77,5 @@ export function* fetchReviewsDataAsync(action: any) {
 //But, if takeLatest fire off,
 //any async task that running before will be canceled.
 export default function* root() {
-  yield all([takeLatest(FETCH_DATA_REQUEST, fetchReviewsDataAsync)]);
+  yield all([takeEvery(FETCH_DATA_REQUEST, fetchReviewsDataAsync)]);
 }

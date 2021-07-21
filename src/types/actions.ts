@@ -4,6 +4,7 @@ import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
+  FETCH_DATA_PAGES_SUCCESS,
 } from "../redux/store/actionTypes";
 
 export interface FetchDataRequestPayload {
@@ -11,10 +12,16 @@ export interface FetchDataRequestPayload {
   limit: number;
   score?: number;
   channel?: string;
+  allData?: boolean;
 }
 
 export interface FetchDataSuccessPayload {
   data: Review[];
+}
+
+export interface FetchDataPagesSuccessPayload {
+  numOfPages: number;
+  totalNumberOfResults: number;
 }
 
 export interface FetchDataFailurePayload {
@@ -31,6 +38,11 @@ export interface FetchDataSuccess extends Action {
   payload: FetchDataSuccessPayload;
 }
 
+export interface FetchDataPagesSuccess extends Action {
+  type: typeof FETCH_DATA_PAGES_SUCCESS;
+  payload: FetchDataPagesSuccessPayload;
+}
+
 export interface FetchDataFailure extends Action {
   type: typeof FETCH_DATA_FAILURE;
   payload: FetchDataFailurePayload;
@@ -38,5 +50,6 @@ export interface FetchDataFailure extends Action {
 
 export type ReviewsActions =
   | FetchDataSuccess
+  | FetchDataPagesSuccess
   | FetchDataFailure
   | FetchDataRequest;

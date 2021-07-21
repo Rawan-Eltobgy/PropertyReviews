@@ -3,6 +3,7 @@ import { ReviewsState } from "../../types/state";
 import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
+  FETCH_DATA_PAGES_SUCCESS,
   FETCH_DATA_FAILURE,
 } from "../store/actionTypes";
 
@@ -10,8 +11,11 @@ export const reviewsState: ReviewsState = {
   reviews: [],
   error: "",
   isLoading: false,
+  numOfPages: 0,
+  totalNumberOfResults: 0,
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = reviewsState, action: ReviewsActions) => {
   switch (action.type) {
     case FETCH_DATA_REQUEST:
@@ -23,6 +27,14 @@ export default (state = reviewsState, action: ReviewsActions) => {
       return {
         ...state,
         reviews: action.payload.data,
+        isLoading: false,
+        error: "",
+      };
+    case FETCH_DATA_PAGES_SUCCESS:
+      return {
+        ...state,
+        numOfPages: action.payload.numOfPages,
+        totalNumberOfResults: action.payload.totalNumberOfResults,
         isLoading: false,
         error: "",
       };
